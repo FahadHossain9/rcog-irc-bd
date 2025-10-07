@@ -1,27 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Target, Eye, Users } from "lucide-react";
 
 const AboutSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
+          <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -32,12 +20,7 @@ const AboutSection = () => {
             </div>
 
             {/* Floating Stats Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-6 max-w-xs"
-            >
+            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-6 max-w-xs">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-[#e8f4fa] rounded-full flex items-center justify-center">
                   <Users className="w-6 h-6 text-[#1b75bc]" />
@@ -47,16 +30,11 @@ const AboutSection = () => {
                   <p className="text-sm text-gray-600">Active Members</p>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             <div>
               <h2 className="font-poppins font-bold text-3xl lg:text-4xl text-[#1e293b] mb-4">
                 About RCOG IRC Bangladesh
@@ -81,14 +59,7 @@ const AboutSection = () => {
 
             {/* Mission & Vision Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                }
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="bg-[#e8f4fa] rounded-xl p-6"
-              >
+              <div className="bg-[#e8f4fa] rounded-xl p-6">
                 <div className="flex items-center space-x-3 mb-3">
                   <Target className="w-6 h-6 text-[#1b75bc]" />
                   <h3 className="font-semibold text-lg text-[#1e293b]">
@@ -100,16 +71,9 @@ const AboutSection = () => {
                   gynaecology through education, training, and research
                   excellence.
                 </p>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                }
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="bg-[#e8f4fa] rounded-xl p-6"
-              >
+              <div className="bg-[#e8f4fa] rounded-xl p-6">
                 <div className="flex items-center space-x-3 mb-3">
                   <Eye className="w-6 h-6 text-[#1b75bc]" />
                   <h3 className="font-semibold text-lg text-[#1e293b]">
@@ -120,16 +84,11 @@ const AboutSection = () => {
                   To be the leading authority in women's healthcare in
                   Bangladesh, setting standards for excellence and innovation.
                 </p>
-              </motion.div>
+              </div>
             </div>
 
             {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="pt-4"
-            >
+            <div className="pt-4">
               <Link
                 href="/about"
                 className="inline-flex items-center space-x-2 bg-[#1b75bc] hover:bg-[#155a94] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
@@ -137,8 +96,8 @@ const AboutSection = () => {
                 <span>Learn More About Us</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { CheckCircle, Users, BookOpen, Award } from "lucide-react";
 
 const AboutContent = () => {
@@ -9,12 +8,7 @@ const AboutContent = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <h2 className="font-poppins text-3xl md:text-4xl font-bold text-[#1e293b] mb-6">
               Our Story & Vision
             </h2>
@@ -35,13 +29,7 @@ const AboutContent = () => {
             </p>
 
             <div className="space-y-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex items-start space-x-3"
-              >
+              <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-[#1b75bc] flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold text-[#1e293b] mb-1">
@@ -52,14 +40,8 @@ const AboutContent = () => {
                     professional development.
                   </p>
                 </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex items-start space-x-3"
-              >
+              </div>
+              <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-[#1b75bc] flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold text-[#1e293b] mb-1">
@@ -70,14 +52,8 @@ const AboutContent = () => {
                     daily practice.
                   </p>
                 </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex items-start space-x-3"
-              >
+              </div>
+              <div className="flex items-start space-x-3">
                 <CheckCircle className="w-6 h-6 text-[#1b75bc] flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold text-[#1e293b] mb-1">
@@ -88,17 +64,11 @@ const AboutContent = () => {
                     across Bangladesh.
                   </p>
                 </div>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
-          >
+          <div className="relative">
             <Image
               src="/images/about-rcog.jpg"
               alt="RCOG IRC Bangladesh Committee"
@@ -106,17 +76,11 @@ const AboutContent = () => {
               height={400}
               className="rounded-xl shadow-lg object-cover w-full h-auto"
             />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="absolute -bottom-8 -right-8 bg-[#1b75bc] text-white p-6 rounded-xl shadow-xl hidden md:block"
-            >
+            <div className="absolute -bottom-8 -right-8 bg-[#1b75bc] text-white p-6 rounded-xl shadow-xl hidden md:block">
               <p className="font-poppins text-3xl font-bold">20+</p>
               <p className="text-sm">Years of Excellence</p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

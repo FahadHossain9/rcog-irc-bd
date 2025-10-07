@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import {
   Mail,
   Linkedin,
@@ -74,35 +73,19 @@ const OurTeam = () => {
   return (
     <section className="py-16 bg-[#e8f4fa]">
       <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center font-poppins text-3xl md:text-4xl font-bold text-[#1e293b] mb-4"
-        >
+        <h2 className="text-center font-poppins text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">
           Meet Our Leadership Team
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto"
-        >
+        </h2>
+        <p className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
           Our dedicated team of healthcare professionals and leaders who drive
           our mission forward.
-        </motion.p>
+        </p>
 
         {/* Leadership Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {leadership.map((leader, index) => (
-            <motion.div
+            <div
               key={leader.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
               className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
@@ -137,29 +120,19 @@ const OurTeam = () => {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Committee Members */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-white rounded-xl shadow-lg p-8"
-        >
+        <div className="bg-white rounded-xl shadow-lg p-8">
           <h3 className="font-poppins text-2xl font-bold text-[#1e293b] mb-8 text-center">
             Executive Committee
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {committeeMembers.map((member, index) => (
-              <motion.div
+              <div
                 key={member.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                 className="bg-[#f0f8ff] rounded-lg p-6 hover:bg-[#e8f4fa] transition-colors duration-300"
               >
                 <div className="flex items-start space-x-4">
@@ -179,19 +152,13 @@ const OurTeam = () => {
                     <p className="text-gray-700 text-xs">{member.specialty}</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-12"
-        >
+        <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-[#1b75bc] to-[#ff6b35] rounded-xl p-8 text-white">
             <h3 className="font-poppins text-2xl font-bold mb-4">
               Join Our Community
@@ -215,7 +182,7 @@ const OurTeam = () => {
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,15 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import Link from "next/link";
 import { Calendar, MapPin, Users, ArrowRight } from "lucide-react";
 
 const WorkshopSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   const workshops = [
     {
       id: 1,
@@ -40,54 +34,20 @@ const WorkshopSection = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
     <section className="py-20 bg-[#0d4d7b] text-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="font-poppins font-bold text-3xl lg:text-4xl mb-4">
             Don't Miss Our October Workshop!
           </h2>
           <div className="w-20 h-1 bg-[#ff6b35] rounded-full mx-auto" />
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {workshops.map((workshop, index) => (
-            <motion.div
+            <div
               key={workshop.id}
-              variants={itemVariants}
               className="bg-[#1e293b] rounded-xl p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
               {/* Date */}
@@ -127,17 +87,12 @@ const WorkshopSection = () => {
                 <span>View Details</span>
                 <ArrowRight className="w-3 h-3" />
               </Link>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* View All Events Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-12"
-        >
+        <div className="text-center mt-12">
           <Link
             href="/events"
             className="inline-flex items-center space-x-2 bg-white text-[#0d4d7b] hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
@@ -145,7 +100,7 @@ const WorkshopSection = () => {
             <span>View All Events</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

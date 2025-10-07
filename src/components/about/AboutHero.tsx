@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Users, Target, Award, Heart } from "lucide-react";
 
 const AboutHero = () => {
@@ -9,31 +8,16 @@ const AboutHero = () => {
       <div className="absolute inset-0 opacity-10 bg-[url('/images/patterns/dots.svg')] bg-repeat"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
-          >
+          <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             About RCOG IRC Bangladesh
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl mb-12 opacity-90 leading-relaxed"
-          >
+          <p className="text-lg md:text-xl mb-12 opacity-90 leading-relaxed">
             Dedicated to advancing women's healthcare through excellence,
             education, and evidence-based practice across Bangladesh.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto"
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
             <div className="text-center">
               <Users className="w-8 h-8 mx-auto mb-2 text-orange-300" />
               <div className="text-2xl font-bold">500+</div>
@@ -54,7 +38,7 @@ const AboutHero = () => {
               <div className="text-2xl font-bold">20+</div>
               <div className="text-sm opacity-80">Years</div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,13 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-
 const GallerySection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   const galleryImages = [
     {
       id: 1,
@@ -47,38 +40,10 @@ const GallerySection = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="font-poppins font-bold text-3xl lg:text-4xl text-[#1e293b] mb-4">
             Capturing Moments of Excellence
           </h2>
@@ -88,18 +53,12 @@ const GallerySection = () => {
             excellence.
           </p>
           <div className="w-20 h-1 bg-[#ff6b35] rounded-full mx-auto mt-6" />
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((image, index) => (
-            <motion.div
+            <div
               key={image.id}
-              variants={itemVariants}
               className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <img
@@ -112,17 +71,12 @@ const GallerySection = () => {
                 <h3 className="font-semibold text-lg mb-1">{image.title}</h3>
                 <p className="text-sm opacity-90">Click to view full gallery</p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* View Gallery Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-12"
-        >
+        <div className="text-center mt-12">
           <button className="inline-flex items-center space-x-2 bg-[#1b75bc] hover:bg-[#155a94] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
             <span>View Full Gallery</span>
             <svg
@@ -139,7 +93,7 @@ const GallerySection = () => {
               />
             </svg>
           </button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

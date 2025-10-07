@@ -1,15 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import Link from "next/link";
 import { Calendar, MapPin, ArrowRight, Newspaper, Clock } from "lucide-react";
 
 const NewsEventsSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   const newsItems = [
     {
       id: 1,
@@ -105,13 +99,7 @@ const NewsEventsSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="font-poppins font-bold text-3xl lg:text-4xl text-[#1e293b] mb-4">
             Latest Updates
           </h2>
@@ -120,16 +108,11 @@ const NewsEventsSection = () => {
             events
           </p>
           <div className="w-20 h-1 bg-[#ff6b35] rounded-full mx-auto mt-6" />
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Latest News */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-gray-50 rounded-2xl p-8"
-          >
+          <div className="bg-gray-50 rounded-2xl p-8">
             <div className="flex items-center space-x-3 mb-8">
               <div className="w-10 h-10 bg-[#1b75bc] rounded-full flex items-center justify-center">
                 <Newspaper className="w-5 h-5 text-white" />
@@ -141,13 +124,8 @@ const NewsEventsSection = () => {
 
             <div className="space-y-6">
               {newsItems.map((item, index) => (
-                <motion.div
+                <div
                   key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                  }
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                   <div className="flex space-x-4">
@@ -178,16 +156,11 @@ const NewsEventsSection = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-8"
-            >
+            <div className="mt-8">
               <Link
                 href="/news"
                 className="inline-flex items-center space-x-2 text-[#1b75bc] hover:text-[#155a94] font-semibold transition-colors duration-200"
@@ -195,16 +168,11 @@ const NewsEventsSection = () => {
                 <span>View All News</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Upcoming Events */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-gray-50 rounded-2xl p-8"
-          >
+          <div className="bg-gray-50 rounded-2xl p-8">
             <div className="flex items-center space-x-3 mb-8">
               <div className="w-10 h-10 bg-[#ff6b35] rounded-full flex items-center justify-center">
                 <Calendar className="w-5 h-5 text-white" />
@@ -216,13 +184,8 @@ const NewsEventsSection = () => {
 
             <div className="space-y-6">
               {eventItems.map((event, index) => (
-                <motion.div
+                <div
                   key={event.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                  }
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                   <div className="flex space-x-4">
@@ -260,16 +223,11 @@ const NewsEventsSection = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-8"
-            >
+            <div className="mt-8">
               <Link
                 href="/events"
                 className="inline-flex items-center space-x-2 text-[#1b75bc] hover:text-[#155a94] font-semibold transition-colors duration-200"
@@ -277,8 +235,8 @@ const NewsEventsSection = () => {
                 <span>View All Events</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

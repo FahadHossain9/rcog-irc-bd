@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowDown, FileText, MessageCircle } from "lucide-react";
 
@@ -21,33 +20,19 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
+        <div>
           <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
             Educating And Innovating
             <span className="block text-orange-300">In Healthcare</span>
           </h1>
-        </motion.div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7 }}
-          className="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed"
-        >
+        <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
           Empowering healthcare professionals through excellence, education, and
           evidence-based practice
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.9 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
-        >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Link
             href="/guidance/protocols"
             className="bg-[#1b75bc] hover:bg-[#155a94] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center space-x-2"
@@ -63,15 +48,10 @@ const HeroSection = () => {
             <MessageCircle className="w-5 h-5" />
             <span>Join Our Community</span>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Message from President */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.1 }}
-          className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto"
-        >
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
           <p className="text-lg italic mb-2">
             "Welcome to RCOG IRC Bangladesh - your gateway to excellence in
             women's healthcare."
@@ -79,25 +59,16 @@ const HeroSection = () => {
           <p className="text-sm opacity-90">
             - Prof. Dr. Fawzia Hossain, Chair of RCOG IRC Bangladesh
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center text-white"
-        >
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="flex flex-col items-center text-white">
           <span className="text-sm mb-2">Scroll to explore</span>
           <ArrowDown className="w-6 h-6" />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

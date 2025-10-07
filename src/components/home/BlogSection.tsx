@@ -1,15 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Calendar, User } from "lucide-react";
 
 const BlogSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   const blogPosts = [
     {
       id: 1,
@@ -77,41 +71,13 @@ const BlogSection = () => {
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  };
-
   const featuredPosts = blogPosts.filter((post) => post.featured);
   const regularPosts = blogPosts.filter((post) => !post.featured);
 
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="font-poppins font-bold text-3xl lg:text-4xl text-[#1e293b] mb-4">
             Explore Our Blog and Articles
           </h2>
@@ -120,20 +86,14 @@ const BlogSection = () => {
             opinions in obstetrics and gynaecology.
           </p>
           <div className="w-20 h-1 bg-[#ff6b35] rounded-full mx-auto mt-6" />
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Featured Posts - 2 large cards */}
           <div className="lg:col-span-2 space-y-8">
             {featuredPosts.map((post, index) => (
-              <motion.div
+              <div
                 key={post.id}
-                variants={itemVariants}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -179,16 +139,15 @@ const BlogSection = () => {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Regular Posts - 2 smaller cards */}
           <div className="space-y-6">
             {regularPosts.map((post, index) => (
-              <motion.div
+              <div
                 key={post.id}
-                variants={itemVariants}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
               >
                 <img
@@ -230,18 +189,13 @@ const BlogSection = () => {
                     <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* View All Blog Posts Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-12"
-        >
+        <div className="text-center mt-12">
           <Link
             href="/blog"
             className="inline-flex items-center space-x-2 bg-[#1b75bc] hover:bg-[#155a94] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
@@ -249,7 +203,7 @@ const BlogSection = () => {
             <span>View All Articles</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

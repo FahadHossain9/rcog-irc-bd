@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Calendar, Users, Award, BookOpen } from "lucide-react";
 
 const OurHistory = () => {
@@ -52,26 +51,14 @@ const OurHistory = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center font-poppins text-3xl md:text-4xl font-bold text-[#1e293b] mb-4"
-        >
+        <h2 className="text-center font-poppins text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">
           Our Journey Through the Years
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto"
-        >
+        </h2>
+        <p className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
           From our humble beginnings to becoming a leading force in women's
           healthcare, discover the key milestones that have shaped our
           organization.
-        </motion.p>
+        </p>
 
         <div className="relative">
           {/* Timeline line */}
@@ -79,12 +66,8 @@ const OurHistory = () => {
 
           <div className="space-y-12">
             {milestones.map((milestone, index) => (
-              <motion.div
+              <div
                 key={milestone.year}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`flex flex-col md:flex-row items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
@@ -122,18 +105,12 @@ const OurHistory = () => {
 
                 {/* Spacer for alternating layout */}
                 <div className="w-full md:w-5/12"></div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16"
-        >
+        <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-[#1b75bc] to-[#ff6b35] rounded-xl p-8 text-white">
             <h3 className="font-poppins text-2xl font-bold mb-4">
               Continuing Our Legacy
@@ -144,7 +121,7 @@ const OurHistory = () => {
               women's healthcare.
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
